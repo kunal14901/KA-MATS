@@ -1,0 +1,50 @@
+# Ruff configuration for KA-MATS Crypto
+# https://docs.astral.sh/ruff/configuration/
+
+line-length = 110
+target-version = "py311"
+
+[lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "SIM",  # flake8-simplify
+]
+
+ignore = [
+    "E501",   # line too long — handled by formatter
+    "B008",   # do not perform function call in default args (pydantic Field)
+    "B904",   # raise from None — intentional in some agent error paths
+    "SIM108", # ternary operator — readability preference
+    "SIM117", # multiple with — intentional in some tests
+    "SIM102", # nested if — intentional for readability in multi-condition guards
+    "SIM115", # context manager for open() — legacy patterns in backtest scripts
+    "UP007",  # X | Y union syntax — keep Optional[] for pydantic v2 compat
+    "E741",   # ambiguous variable name (l, O, I) — used in math/finance code
+    "E701",   # multiple statements on one line (colon) — compact backtest tables
+    "E702",   # multiple statements on one line (semicolon) — compact backtest tables
+    "F811",   # redefinition of unused name — fixture shadowing / intentional overrides
+]
+
+[lint.per-file-ignores]
+"tests/**" = ["F401", "F811", "B", "UP035"]  # test files: allow unused imports + fixture shadowing
+"backtest/**" = ["E402", "F401", "UP035"]    # backtest scripts: allow module-level imports after code
+"scripts/**" = ["T201"]                      # scripts: allow print()
+"tools/**" = ["E402", "F401"]                # tools scripts: allow module-level imports after code
+"main.py" = ["E402"]                              # intentional imports after env-var reads
+"paper_trade.py" = ["E402"]                       # intentional imports after env-var reads
+"run_company.py" = ["E402"]                       # intentional imports after env-var reads
+"agents/execution_agent.py" = ["E402"]            # loguru imported after module-level constants
+
+[lint.isort]
+known-first-party = ["core", "agents", "backtest", "config", "exchanges", "dashboard"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false

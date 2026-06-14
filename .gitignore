@@ -1,0 +1,45 @@
+.env
+__pycache__/
+*.pyc
+*.pem
+*.key
+logs/
+results/
+knowledge/.vector_cache/
+knowledge/.execution_state.json
+knowledge/bm25_memory.json
+knowledge/.adaptive_state.json
+
+# Test / coverage outputs
+.coverage
+coverage.json
+htmlcov/
+.pytest_cache/
+.ruff_cache/
+
+# Removed from repo — keep local leftovers from being committed
+dashboard/
+docs/
+
+# Local junk folders
+New folder/
+
+# Local Windows-only helpers (keep on your machine; not part of shared repo)
+Start_KA_MATS_Dashboard.bat
+Stop_KA_MATS_Dashboard.bat
+run_live.bat
+run_live.ps1
+run_paper_90d.ps1
+setup_scheduler.bat
+deploy/deploy_to_ec2.bat
+
+# Optional internal notes (keep locally if you still have the files)
+OPTIMIZATION_RESULTS.md
+UPGRADE_SUMMARY.md
+
+# Internal diagnostic / investigation scripts (prefixed with _)
+backtest/_*.py
+scripts/_*.py
+
+# Personal / third-party strategy files not part of this project
+New Strategy/

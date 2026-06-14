@@ -1,0 +1,18 @@
+﻿On-Chain Metrics as Secondary Context
+Research Note Summary
+
+This note summarizes how on-chain data can enrich but not dominate decisions.
+
+Core observations:
+- Address activity and exchange flow can add medium-horizon context.
+- On-chain signals are slower than intraday price action and can lag turns.
+- Data quality and coverage vary by asset and provider.
+
+Practical use:
+- Use on-chain metrics as confidence modifiers.
+- Keep strategy entries primarily price/volatility-anchored.
+- Require independent technical confirmation before acting.
+
+Implementation notes:
+- Cache data and handle missing/late updates safely.
+- Avoid hard dependencies that can halt trading flow.

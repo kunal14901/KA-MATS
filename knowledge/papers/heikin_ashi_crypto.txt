@@ -1,0 +1,18 @@
+﻿Heikin-Ashi Trend Confirmation for Crypto
+Research Note Summary
+
+This note summarizes why Heikin-Ashi filtering can reduce noise.
+
+Core observations:
+- Heikin-Ashi candle structure filters intrabar noise compared with raw candles.
+- Trend resumption bars with strong body characteristics often outperform plain RSI pullback entries.
+- Confirmation works best when aligned with EMA structure and trend strength.
+
+Practical entry framework:
+- Require trend regime confirmation first.
+- Use HA bullish structure plus moving-average alignment.
+- Add relative-strength filter to avoid weak-symbol entries.
+
+Risk management:
+- ATR-based stops are still required; HA does not remove volatility risk.
+- Time-based exits prevent capital from stalling in failed resumptions.

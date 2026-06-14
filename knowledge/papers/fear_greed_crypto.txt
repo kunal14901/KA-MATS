@@ -1,0 +1,18 @@
+﻿Fear and Greed as a Context Signal in Crypto
+Research Note Summary
+
+This note summarizes how sentiment extremes can support contrarian setups.
+
+Core observations:
+- Extreme fear often coincides with oversold conditions and liquidity vacuums.
+- Extreme greed is frequently associated with compressed future return distribution.
+- Sentiment is a context variable, not a standalone entry trigger.
+
+Practical use:
+- Combine fear extremes with technical oversold evidence (RSI, z-score, VWAP deviation).
+- Combine greed extremes with trend exhaustion and weak breadth confirmation.
+- Downweight sentiment inputs during strongly trending directional regimes.
+
+Execution guidance:
+- Use sentiment to adjust confidence, not to bypass risk gates.
+- Maintain strict stop discipline regardless of sentiment score.

@@ -1,0 +1,40 @@
+# ─────────────────────────────────────────────────────────────
+#  New Trading Architecture · Combined Requirements
+#  KA-MATS backend + Streamlit dashboard
+# ─────────────────────────────────────────────────────────────
+
+# ── Core Trading Infrastructure ───────────────────────────────
+ccxt>=4.2.0                 # Exchange REST + WebSocket (CCXT Pro for live feeds)
+pandas>=2.0.0
+numpy>=1.24.0
+ta>=0.11.0                  # Technical analysis (EMA, RSI, ATR, ADX, etc.)
+pydantic>=2.0.0
+loguru>=0.7.0
+yfinance>=0.2.40            # Historical OHLCV download for the backtest engine
+pyarrow>=14.0.0             # Parquet cache for backtest data
+
+# ── Machine Learning / NLP ────────────────────────────────────
+rank-bm25>=0.2.2            # BM25 experience memory retrieval
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.4            # FAISS vector store for knowledge retrieval
+# torch is a transitive dep of sentence-transformers.
+# Pin >= 2.7.0 to stay above CVE-2025-3000 (torch.jit.script memory corruption,
+# last_affected=2.6.0 per OSV; we never call torch.jit.script in this codebase).
+torch>=2.7.0
+
+# ── Dashboard ─────────────────────────────────────────────────
+streamlit>=1.35.0           # Streamlit UI (primary dashboard)
+streamlit-autorefresh>=1.0.1  # Live auto-refresh for the portfolio page
+plotly>=5.18.0              # Charts: equity curve, drawdown, Sankey
+fastapi>=0.104.0            # REST/WebSocket API server (existing dashboard)
+uvicorn[standard]>=0.24.0
+websockets>=12.0
+
+# ── Environment / Config ──────────────────────────────────────
+python-dotenv>=1.0.0
+
+# ── Testing ───────────────────────────────────────────────────
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.1
+pytest-timeout>=2.1.0

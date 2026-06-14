@@ -1,0 +1,18 @@
+﻿Correlation Contagion in Altcoin and DeFi Baskets
+Research Note Summary
+
+This note summarizes diversification limits in crypto stress periods.
+
+Core observations:
+- Correlations between risk-on crypto assets often rise sharply during selloffs.
+- Apparent diversification in calm markets can disappear in drawdowns.
+- Concentration risk increases when symbols share narrative and liquidity drivers.
+
+Portfolio implications:
+- Cap total portfolio exposure.
+- Limit simultaneous positions in highly correlated sleeves.
+- Favor relative-quality assets during stress regimes.
+
+Risk controls:
+- Track realized basket correlation over rolling windows.
+- Tighten exposure caps when contagion risk is elevated.

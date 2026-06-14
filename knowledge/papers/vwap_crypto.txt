@@ -1,0 +1,18 @@
+﻿VWAP Mean Reversion in 24/7 Crypto Markets
+Research Note Summary
+
+This note summarizes VWAP deviation behavior for liquid crypto pairs.
+
+Core observations:
+- Large downside displacement from anchored VWAP often reverts in non-trending tape.
+- Signals degrade sharply when broader regime is directional and persistent.
+- BTC/ETH generally show cleaner VWAP behavior than thin altcoins.
+
+Practical rules:
+- Prefer ranging or mean-reverting regimes.
+- Combine VWAP deviation with oversold momentum filter.
+- Avoid macro-downtrend knife-catching with trend filter.
+
+Execution guidance:
+- VWAP is best used as entry context; exits still need favorable reward-to-risk.
+- Stop and target distances should adapt to ATR.

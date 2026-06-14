@@ -1,0 +1,18 @@
+﻿Fractional Sizing in High-Volatility Crypto Systems
+Research Note Summary
+
+This note summarizes sizing discipline under high variance.
+
+Core observations:
+- Overbetting accelerates drawdown nonlinearly in volatile assets.
+- Fractional risk sizing improves survivability and compounding stability.
+- Portfolio-level exposure caps are as important as per-trade risk.
+
+Practical framework:
+- Define fixed risk budget per trade as a percentage of equity.
+- Convert risk budget to units using stop distance.
+- Apply hard caps for max position size and total exposure.
+
+Operational notes:
+- Recompute size after each equity change.
+- Enforce drawdown and daily-loss circuit breakers.

@@ -1,0 +1,18 @@
+﻿Trend Pullback Playbook for Crypto
+Research Note Summary
+
+This note summarizes robust pullback behavior in uptrends.
+
+Core observations:
+- Pullbacks to fast/medium moving averages offer better reward-to-risk than breakout chasing.
+- Quality pullbacks preserve broader trend structure and recover with expanding momentum.
+- Deep pullbacks in weak trend contexts can become full regime transitions.
+
+Practical setup filters:
+- Trend regime required (ADX and MA structure aligned).
+- Pullback depth constrained to avoid knife-catching.
+- Relative-strength and volume context preferred.
+
+Execution and risk:
+- Place stop beyond volatility envelope, not directly at moving average touch.
+- Scale position by stop distance so per-trade risk remains stable.

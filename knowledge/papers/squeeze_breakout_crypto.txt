@@ -1,0 +1,18 @@
+﻿Squeeze Breakout Dynamics in Crypto
+Research Note Summary
+
+This note summarizes volatility compression and expansion behavior.
+
+Core observations:
+- Volatility compression periods often precede directional expansion.
+- Breakouts with weak volume or weak momentum confirmation fail more often.
+- Context matters: trend-aligned breakouts perform better than counter-trend releases.
+
+Practical setup:
+- Detect squeeze state via BB inside KC.
+- Trade only post-release with positive momentum confirmation.
+- Add volume-ratio condition to improve signal quality.
+
+Risk controls:
+- Use ATR-based initial stops.
+- Enforce max-hold windows when expansion does not follow through.

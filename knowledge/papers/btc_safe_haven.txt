@@ -1,0 +1,18 @@
+﻿Bitcoin as a Relative Safe-Haven During Altcoin Stress
+Research Note Summary
+
+This note captures flight-to-quality behavior in crypto drawdowns.
+
+Core observations:
+- During broad altcoin deleveraging, BTC and ETH often decline less than high-beta alts.
+- Relative strength ranking is more informative than absolute returns in stressed tape.
+- Safe-haven behavior is conditional, not guaranteed.
+
+Practical trading implications:
+- In volatile or bearish regimes, prioritize BTC/ETH when cross-rank confirms relative leadership.
+- Avoid defensive rotation when BTC/ETH are also weak on relative basis.
+- Use wider ATR stops in stress regimes due to gap and wick risk.
+
+Risk notes:
+- Correlation spikes can still pull BTC/ETH down in systemic events.
+- Position sizing should remain volatility-normalized.

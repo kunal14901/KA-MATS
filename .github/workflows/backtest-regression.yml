@@ -1,0 +1,116 @@
+# ============================================================
+#  KA-MATS Crypto — Backtest Regression Guard
+#
+#  Runs a fast smoke backtest (2020-2022, 4 symbols) and asserts:
+#    Sharpe >= 0.8, MaxDD <= 45%, at least 15 trades
+#
+#  Thresholds are deliberately looser than the v15 champion
+#  (Sharpe 1.39, MaxDD 40%) to allow variance in the smoke window.
+# ============================================================
+name: Backtest Regression
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backtest/**"
+      - "agents/strategy_agent.py"
+      - "agents/execution_agent.py"
+      - "agents/risk_manager.py"
+      - "core/models.py"
+      - "config/settings.py"
+      - "scripts/ci_backtest_smoke.py"
+      - ".github/workflows/backtest-regression.yml"
+  schedule:
+    - cron: "0 2 * * 1"
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: "Trade start YYYY-MM-DD (default 2020-01-01)"
+        required: false
+        default: "2020-01-01"
+      end_date:
+        description: "Trade end YYYY-MM-DD (default 2022-12-31)"
+        required: false
+        default: "2022-12-31"
+
+concurrency:
+  group: backtest-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backtest:
+    name: Regression smoke test (${{ github.event.inputs.start_date || '2020-01-01' }} to ${{ github.event.inputs.end_date || '2022-12-31' }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Cache yfinance data
+        uses: actions/cache@v4
+        with:
+          path: backtest/cache/
+          key: yf-cache-${{ runner.os }}-${{ hashFiles('backtest/run_crypto_backtest.py') }}-${{ github.run_id }}
+          restore-keys: |
+            yf-cache-${{ runner.os }}-
+
+      - name: Run backtest smoke test
+        env:
+          EXECUTION_MODE: paper
+          PYTHONDONTWRITEBYTECODE: "1"
+          SMOKE_START: ${{ github.event.inputs.start_date || '2020-01-01' }}
+          SMOKE_END: ${{ github.event.inputs.end_date || '2022-12-31' }}
+        run: python scripts/ci_backtest_smoke.py --start "$SMOKE_START" --end "$SMOKE_END" --min-sharpe 0.8 --max-drawdown 0.45 --min-trades 15 --output results/ci_backtest_result.json
+
+      - name: Upload backtest artefacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backtest-results-${{ github.sha }}
+          path: |
+            results/ci_backtest_result.json
+            results/equity_curve_*.png
+            results/*.csv
+          retention-days: 30
+
+      - name: Post summary to job
+        if: always()
+        run: |
+          python - << 'PYEOF'
+          import json, os, sys
+          path = "results/ci_backtest_result.json"
+          if not os.path.exists(path):
+              print("No result file found.")
+              sys.exit(1)
+          r = json.load(open(path))
+          passed = r.get("passed", False)
+          sharpe = r.get("sharpe", 0)
+          maxdd  = r.get("max_drawdown", 0)
+          trades = r.get("n_trades", 0)
+          start  = r.get("start_date", "?")
+          end    = r.get("end_date", "?")
+          lines = [
+              f"## Backtest Regression ({start} to {end})",
+              "| Metric | Value | Gate | Status |",
+              "|--------|-------|------|--------|",
+              f"| Sharpe | {sharpe:.3f} | >= 0.80 | {'PASS' if sharpe >= 0.8 else 'FAIL'} |",
+              f"| MaxDD  | {maxdd:.1%} | <= 45.0% | {'PASS' if maxdd <= 0.45 else 'FAIL'} |",
+              f"| Trades | {trades} | >= 15 | {'PASS' if trades >= 15 else 'FAIL'} |",
+              "",
+              f"**Result: {'PASSED' if passed else 'FAILED'}**",
+          ]
+          summary = "\n".join(lines)
+          print(summary)
+          with open(os.environ.get("GITHUB_STEP_SUMMARY", "/dev/null"), "a") as f:
+              f.write(summary + "\n")
+          PYEOF

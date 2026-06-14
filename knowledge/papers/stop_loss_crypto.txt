@@ -1,0 +1,18 @@
+﻿Stop-Loss and Exit Discipline for Crypto Strategies
+Research Note Summary
+
+This note summarizes robust stop and exit behavior for fast markets.
+
+Core observations:
+- Tight stops are frequently harvested by normal crypto noise.
+- Wider, volatility-scaled stops reduce false exits but require smaller size.
+- Time-based exits help recycle capital from stagnant positions.
+
+Practical policy:
+- Set initial stops from ATR multipliers by symbol class and regime.
+- Require minimum stop distance to prevent structurally fragile setups.
+- Add max-hold exits for strategies with bounded expected holding time.
+
+Risk notes:
+- Exit logic must be deterministic and auditable.
+- Never relax stop enforcement after entry.

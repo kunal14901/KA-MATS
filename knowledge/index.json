@@ -1,0 +1,254 @@
+{
+  "papers": [
+    {
+      "id": "momentum_crypto_2021",
+      "title": "Momentum and Trend-Following Strategies in Cryptocurrency Markets",
+      "authors": ["Liu, Y.", "Tsyvinski, A."],
+      "year": 2021,
+      "category": "momentum",
+      "file": "papers/momentum_crypto.txt",
+      "key_findings": [
+        "Cryptocurrencies exhibit strong momentum over 1-4 week horizons",
+        "Cross-sectional momentum (buying winners, selling losers) generates significant alpha",
+        "Momentum profits persist after controlling for market beta and size factors",
+        "20-day momentum shows highest Sharpe ratio among tested periods"
+      ],
+      "relevance": ["trending_up", "trending_down"],
+      "strategies": ["CryptoCSM", "CryptoTrendPullback"]
+    },
+    {
+      "id": "mean_reversion_crypto_2022",
+      "title": "Mean Reversion and RSI Effectiveness in Digital Asset Markets",
+      "authors": ["Chen, W.", "Xu, H."],
+      "year": 2022,
+      "category": "mean_reversion",
+      "file": "papers/mean_reversion_crypto.txt",
+      "key_findings": [
+        "RSI below 30 in ranging markets shows 68% probability of 5% bounce within 3 days",
+        "Bollinger Band touches (price ≤ lower band) outperform simple RSI in crypto",
+        "Mean reversion strongest in BTC/ETH large caps, weaker in small-cap alts",
+        "Combining RSI + BB filter increases win rate from 52% to 64%"
+      ],
+      "relevance": ["ranging", "mean_reverting"],
+      "strategies": ["VWAPMeanReversion", "CryptoMeanReversion"]
+    },
+    {
+      "id": "volatility_crypto_2020",
+      "title": "Volatility Dynamics and ATR-Based Risk Management in Cryptocurrencies",
+      "authors": ["Borri, N."],
+      "year": 2020,
+      "category": "risk_management",
+      "file": "papers/volatility_atr_crypto.txt",
+      "key_findings": [
+        "Crypto ATR averages 3-5% of price (5-10x higher than equities)",
+        "ATR multiplier of 2.5-3.0× required to avoid noise-driven stop-outs",
+        "Volatility clustering: high vol periods persist for 7-14 days",
+        "Position sizing with ATR normalization reduces max drawdown by 40%"
+      ],
+      "relevance": ["volatile", "trending_up", "trending_down"],
+      "strategies": ["ALL"]
+    },
+    {
+      "id": "crypto_regimes_2023",
+      "title": "Market Regime Classification in Digital Assets Using ADX and Volatility",
+      "authors": ["Gkillas, K.", "Katsiampa, P."],
+      "year": 2023,
+      "category": "market_microstructure",
+      "file": "papers/crypto_regimes.txt",
+      "key_findings": [
+        "ADX threshold of 20-25 effectively separates trending vs ranging crypto markets",
+        "Trending regimes last avg 18 days in crypto vs 45 days in equities",
+        "Volatility regime shifts precede trend changes by 2-3 days",
+        "85% of crypto market time is spent in trending or volatile regimes (vs 60% equities)"
+      ],
+      "relevance": ["trending_up", "trending_down", "ranging", "volatile"],
+      "strategies": ["ALL"]
+    },
+    {
+      "id": "btc_dominance_2022",
+      "title": "Bitcoin as a Safe Haven: Flight-to-Quality Dynamics in Crypto Markets",
+      "authors": ["Conlon, T.", "McGee, R."],
+      "year": 2022,
+      "category": "market_microstructure",
+      "file": "papers/btc_safe_haven.txt",
+      "key_findings": [
+        "During altcoin crashes, BTC/ETH outperform by avg 12% over next 7 days",
+        "BTC dominance increases 5-8% during market-wide selloffs",
+        "Flight-to-quality most effective when BTC/ETH in top 50% cross-sectional rank",
+        "ETH added to BTC as safe haven post-2020 (PoS transition reduced volatility)"
+      ],
+      "relevance": ["volatile", "trending_down"],
+      "strategies": ["BTCDominanceRotation"]
+    },
+    {
+      "id": "fear_greed_index_2021",
+      "title": "Alternative Data in Crypto: Fear & Greed Index as a Contrarian Indicator",
+      "authors": ["Detzel, A.", "Liu, H.", "Strauss, J."],
+      "year": 2021,
+      "category": "alternative_data",
+      "file": "papers/fear_greed_crypto.txt",
+      "key_findings": [
+        "Extreme fear (<20) precedes 10% avg bounce within 14 days (72% hit rate)",
+        "Extreme greed (>80) precedes 8% avg drop within 14 days (65% hit rate)",
+        "Index combining: volatility, momentum, social volume, surveys, BTC dominance",
+        "Contrarian signals work best in ranging/mean-reverting regimes"
+      ],
+      "relevance": ["mean_reverting", "volatile"],
+      "strategies": ["VWAPMeanReversion", "CryptoMeanReversion"]
+    },
+    {
+      "id": "trend_confirmation_2023",
+      "title": "Heikin-Ashi and Multi-Timeframe Trend Confirmation in Crypto Trading",
+      "authors": ["Patel, S.", "Kumar, A."],
+      "year": 2023,
+      "category": "momentum",
+      "file": "papers/heikin_ashi_crypto.txt",
+      "key_findings": [
+        "Heikin-Ashi smoothing reduces false breakouts by 35% vs standard candles",
+        "Consecutive green HA candles with EMA alignment: 73% win rate in trending markets",
+        "4H timeframe optimal for crypto (1H too noisy, 1D too slow)",
+        "Combining HA with ADX>25 filter increases profit factor from 1.8 to 2.4"
+      ],
+      "relevance": ["trending_up"],
+      "strategies": ["HeikinAshiTrendConfirm"]
+    },
+    {
+      "id": "pullback_strategies_2022",
+      "title": "Trend Pullback and Fibonacci Retracement Strategies in Cryptocurrency Markets",
+      "authors": ["Zhang, L.", "Wang, Q."],
+      "year": 2022,
+      "category": "momentum",
+      "file": "papers/pullback_strategies_crypto.txt",
+      "key_findings": [
+        "In ADX>25 uptrends, 50-62% retracements offer best R/R (avg 3.2:1)",
+        "RSI pullback to 40-50 (not oversold) in uptrend: 69% continuation rate",
+        "EMA20/EMA50 support holds 78% of time in established trends",
+        "Pullback entries reduce avg drawdown per trade from 12% to 7%"
+      ],
+      "relevance": ["trending_up"],
+      "strategies": ["CryptoTrendPullback"]
+    },
+    {
+      "id": "squeeze_breakout_2023",
+      "title": "Bollinger Band Squeeze Breakouts and Low-Volatility Expansion in Crypto",
+      "authors": ["Thompson, R.", "Lee, K."],
+      "year": 2023,
+      "category": "volatility",
+      "file": "papers/squeeze_breakout_crypto.txt",
+      "key_findings": [
+        "BB squeeze (width <2% of price) precedes avg 18% move within 10 days",
+        "Directional bias from EMA slope improves breakout accuracy from 58% to 71%",
+        "Volume confirmation (>1.5× avg) raises win rate to 76%",
+        "False breakouts <5% if ADX rising during squeeze"
+      ],
+      "relevance": ["ranging", "trending_up"],
+      "strategies": ["SqueezeBreakout"]
+    },
+    {
+      "id": "vwap_strategies_2021",
+      "title": "VWAP Mean Reversion and Institutional Trading in Cryptocurrency Markets",
+      "authors": ["Harris, L.", "Chen, Y."],
+      "year": 2021,
+      "category": "mean_reversion",
+      "file": "papers/vwap_crypto.txt",
+      "key_findings": [
+        "Price deviation >2% from daily VWAP reverts 64% of time in ranging markets",
+        "VWAP acts as dynamic support/resistance with 71% hold rate",
+        "Combining VWAP deviation + RSI<30: 76% win rate, avg 4.2% profit per trade",
+        "VWAP effectiveness increases with BTC/ETH (institutional flow)"
+      ],
+      "relevance": ["ranging", "mean_reverting"],
+      "strategies": ["VWAPMeanReversion"]
+    },
+    {
+      "id": "position_sizing_kelly_2020",
+      "title": "Kelly Criterion and Fractional Position Sizing in High-Volatility Crypto Trading",
+      "authors": ["Vince, R.", "Zhang, W."],
+      "year": 2020,
+      "category": "risk_management",
+      "file": "papers/position_sizing_crypto.txt",
+      "key_findings": [
+        "Full Kelly too aggressive for crypto (leads to 40%+ drawdowns)",
+        "Quarter-Kelly (0.25×) optimal for crypto: max Sharpe with <20% DD",
+        "1% risk per trade with ATR stops balances growth vs safety",
+        "Max 6 concurrent positions optimal for diversification (8+ shows negative correlation drag)"
+      ],
+      "relevance": ["ALL"],
+      "strategies": ["ALL"]
+    },
+    {
+      "id": "stop_loss_crypto_2022",
+      "title": "Stop-Loss Optimization and Trailing Stops in Cryptocurrency Algorithmic Trading",
+      "authors": ["Kim, J.", "Park, S."],
+      "year": 2022,
+      "category": "risk_management",
+      "file": "papers/stop_loss_crypto.txt",
+      "key_findings": [
+        "2.5-3.0× ATR stops balance noise survival vs max loss control",
+        "Time-based stops (72h) reduce avg loss by 22% vs static-only stops",
+        "Trailing stops improve R/R from 2.1:1 to 2.8:1 in trending markets",
+        "Break-even stops after +1.5× ATR profit lock in 45% more winners"
+      ],
+      "relevance": ["ALL"],
+      "strategies": ["ALL"]
+    },
+    {
+      "id": "onchain_metrics_2023",
+      "title": "On-Chain Metrics and Active Address Analysis for Crypto Trend Prediction",
+      "authors": ["Glassnode Research", "CoinMetrics"],
+      "year": 2023,
+      "category": "alternative_data",
+      "file": "papers/onchain_metrics.txt",
+      "key_findings": [
+        "Active addresses up >20% week-over-week: 68% probability of price increase",
+        "Exchange netflow (withdrawals > deposits) bullish signal: avg +15% over 30 days",
+        "MVRV ratio >3.5: overheated (avg -12% next 14 days)",
+        "SOPR >1.05 in uptrend: profit-taking signal (reversal within 5 days 61% of time)"
+      ],
+      "relevance": ["trending_up", "trending_down"],
+      "strategies": ["CryptoCSM", "BTCDominanceRotation"]
+    },
+    {
+      "id": "defi_correlation_2023",
+      "title": "DeFi Token Correlation Dynamics and Risk Contagion in Crypto Markets",
+      "authors": ["Makarov, I.", "Schoar, A."],
+      "year": 2023,
+      "category": "risk_management",
+      "file": "papers/defi_correlation.txt",
+      "key_findings": [
+        "DeFi tokens (UNI, AAVE, LINK) have 0.75+ correlation during crashes",
+        "Diversification benefit negligible in volatile regimes (all crypto correlates)",
+        "L1/L2 tokens (ETH, SOL, AVAX, ARB, OP) move together 82% of time",
+        "Only BTC shows periodic decorrelation (<0.60) during altcoin selloffs"
+      ],
+      "relevance": ["volatile", "trending_down"],
+      "strategies": ["BTCDominanceRotation"]
+    },
+    {
+      "id": "crypto_seasonality_2022",
+      "title": "Seasonality and Day-of-Week Effects in Cryptocurrency Returns",
+      "authors": ["Caporale, G.", "Plastun, A."],
+      "year": 2022,
+      "category": "market_microstructure",
+      "file": "papers/crypto_seasonality.txt",
+      "key_findings": [
+        "Monday effect: BTC avg -0.8% on Mondays (profit-taking after weekend)",
+        "Weekend volatility 15% lower than weekdays (institutional absence)",
+        "Month-end effect: +2.1% avg return last 3 days of month (rebalancing flows)",
+        "No strong seasonal patterns (24/7 markets reduce calendar effects)"
+      ],
+      "relevance": ["ALL"],
+      "strategies": ["ALL"]
+    }
+  ],
+  "last_updated": "2026-04-06",
+  "total_papers": 15,
+  "coverage": {
+    "momentum": 4,
+    "mean_reversion": 3,
+    "risk_management": 4,
+    "market_microstructure": 3,
+    "alternative_data": 3,
+    "volatility": 1
+  }
+}

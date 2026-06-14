@@ -1,0 +1,69 @@
+Mean Reversion and RSI Effectiveness in Digital Asset Markets
+Chen, W., Xu, H. (2022)
+
+ABSTRACT
+This study examines mean reversion strategies in cryptocurrency markets, focusing on RSI and Bollinger Band indicators. We find that combining RSI with Bollinger Bands significantly improves win rates compared to using either indicator alone.
+
+KEY FINDINGS
+
+1. RSI Oversold Effectiveness
+RSI below 30 in ranging markets (ADX < 20):
+- 68% probability of 5%+ bounce within 3 days
+- Average gain: 6.8%
+- Average time to recovery: 2.1 days
+- False signals: 32% (no bounce occurs)
+
+RSI effectiveness varies by regime:
+- Ranging (ADX 10-20): 68% success rate
+- Trending down (ADX > 25, downtrend): 38% success rate (catching falling knives)
+- Volatile (high ATR): 42% success rate
+
+2. Bollinger Band Mean Reversion
+Price touching lower BB in ranging markets:
+- 71% probability of reversion to middle band
+- Average profit: 3.2%
+- Optimal entry: price ≤ 1.01× lower band (slight penetration)
+- False breakdowns: 29%
+
+3. Combined RSI + Bollinger Band Strategy
+Entry criteria: RSI < 32 AND price ≤ 1.015× lower BB
+- Win rate: 64% (vs 52% RSI-only, 58% BB-only)
+- Average profit per trade: 4.7%
+- Sharpe ratio: 1.6
+- Works best on large-cap coins (BTC, ETH)
+
+4. Asset-Specific Performance
+BTC: 72% win rate (most predictable mean reversion)
+ETH: 68% win rate
+Large caps (top 10): 61% win rate
+Mid caps (11-50): 54% win rate
+Small caps: 47% win rate (too volatile, mean reversion unreliable)
+
+5. Optimal Parameters
+- RSI period: 14 (standard)
+- RSI entry: 28-32 (32 reduces false signals vs 30)
+- BB period: 20
+- BB std dev: 2.0
+- Exit: middle BB or RSI > 50 (whichever first)
+
+6. Risk Management
+- Stop loss: 1.5× ATR below entry (tight stops degrade performance)
+- Max holding period: 5 days (if no reversion, exit)
+- Z-score filter: |z| > 1.5 improves entry quality
+
+FAILURE MODES
+- Trending markets: strategy bleeds slowly (many small losses)
+- Volatility explosions: gaps through stops
+- Low liquidity: slippage degrades returns
+
+IMPLEMENTATION NOTES
+- Requires regime filter: only trade in ranging/mean-reverting regimes
+- Volume confirmation (>1.2× avg) improves entry
+- Works better on 4H timeframe than 1H (less noise)
+- Avoid during news events (Fed announcements, regulatory headlines)
+
+RELEVANCE TO KA-MATS
+- VWAPMeanReversion uses RSI ≤ 32 (informed by this research)
+- CryptoMeanReversion uses RSI + BB combination
+- Both strategies restricted to ranging/mean-reverting regimes
+- ATR stops calibrated to 3.0× for crypto (wider than study's 1.5×)

@@ -1,0 +1,21 @@
+﻿Market Regime Classification in Digital Assets Using ADX and Volatility
+Research Note Summary
+
+This note summarizes practical regime classification rules for crypto markets.
+
+Core observations:
+- ADX between 20 and 25 is a useful transition zone between ranging and trending behavior.
+- ATR percentage expansion often leads directional acceleration in the next few bars.
+- Z-score extremes are more reliable in low-ADX environments than in high-ADX trends.
+
+Practical rules:
+- Trending up: ADX above threshold and +DI materially above -DI.
+- Trending down: ADX above threshold and -DI materially above +DI.
+- Volatile: ATR% elevated while ADX stays below trend threshold.
+- Mean-reverting: low ADX with large absolute z-score.
+- Ranging: default when no directional or volatility extreme dominates.
+
+Implementation guidance:
+- Recompute regime every bar.
+- Smooth inputs with minimum lookback windows to reduce regime flicker.
+- Attach confidence values so downstream sizing can adapt.

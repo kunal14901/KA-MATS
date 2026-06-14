@@ -1,0 +1,18 @@
+﻿Seasonality and Calendar Effects in 24/7 Crypto Markets
+Research Note Summary
+
+This note summarizes weaker but still observable timing effects.
+
+Core observations:
+- Calendar effects exist but are less stable than in traditional markets.
+- Weekend liquidity shifts can alter spread and slippage behavior.
+- Session overlap and macro-event timing matter more than day-of-week alone.
+
+Practical use:
+- Use calendar context for execution quality adjustments, not primary alpha.
+- Expect effect decay after public discovery.
+- Keep core strategy logic regime-driven and price-driven.
+
+Execution guidance:
+- Increase slippage assumptions in thinner liquidity windows.
+- Avoid overfitting entries to historical calendar quirks.
