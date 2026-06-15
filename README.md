@@ -8,7 +8,7 @@
 
 ---
 
-## Verified Backtest Performance (v15 Champion)
+## Verified Backtest Performance
 
 > Walk-forward validated on 22 crypto assets, Jan 2020 – Jan 2026. Intrabar fills using 1h resolution. Tiered slippage + maker-order cost model. **No parameter fitting on out-of-sample data.**
 
@@ -44,7 +44,7 @@ The circuit breaker **correctly avoids** 2022 and 2025. Every attempt to force t
 
 ```
                     ┌─────────────────────────────────────────────────┐
-                    │              KA-MATS v15 Pipeline                │
+                    │              KA-MATS Pipeline                   │
                     └─────────────────────────────────────────────────┘
 
   ┌──────────┐   ┌──────────┐   ┌──────────────┐   ┌───────────────┐
@@ -55,7 +55,7 @@ The circuit breaker **correctly avoids** 2022 and 2025. Every attempt to force t
   └──────────┘   └──────────┘   └──────────────┘   └───────────────┘
                                                             │
   ┌──────────────────────────────────────────────────────────▼──────┐
-  │                    Strategy Agent                                │
+  │                    Strategy Agent                               │
   │   CryptoTrendPullback · CryptoMomentumBreakout · CryptoBearShort│
   │   Deterministic rules only — no LLM inventing trade ideas       │
   └─────────────────────────────────────┬───────────────────────────┘
