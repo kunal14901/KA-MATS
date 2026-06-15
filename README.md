@@ -213,7 +213,7 @@ print(result.tx_signature)
 
 ---
 
-## Configuration (v15 Champion)
+## Configuration 
 
 | Setting | Value | Rationale |
 |---|---|---|
