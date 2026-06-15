@@ -48,10 +48,10 @@ The circuit breaker **correctly avoids** 2022 and 2025. Every attempt to force t
                     └─────────────────────────────────────────────────┘
 
   ┌──────────┐   ┌──────────┐   ┌──────────────┐   ┌───────────────┐
-  │  Data    │──▶│ Alt Data │──▶│ Market       │──▶│ Thesis Agent  │
+  │  Data    │──▶│ Alt Data │──▶│ Market       │──▶│ Thesis Agent │
   │  Agent   │   │  Agent   │   │ Analyst      │   │ (SA + context)│
-  │(OHLCV+   │   │(Fear/Greed│   │(Regime:      │   │               │
-  │indicators)│   │sentiment) │   │trend/range)  │   │               │
+  │(OHLCV+   │   │(Fear/Greed│  │(Regime:      │   │               │
+  │indicators)│  │sentiment)│   │trend/range)  │   │               │
   └──────────┘   └──────────┘   └──────────────┘   └───────────────┘
                                                             │
   ┌──────────────────────────────────────────────────────────▼──────┐
@@ -82,7 +82,7 @@ The circuit breaker **correctly avoids** 2022 and 2025. Every attempt to force t
                                             │
                     ┌───────────────────────▼───────────────┐
                     │      Execution Agent                   │
-                    │  Maker limit (65% fill) → market fbk  │
+                    │  Maker limit (65% fill) → market fbk   │
                     │  Exchange-side OCO stop/TP             │
                     │  Paper / Testnet / Live (CCXT)         │
                     │  Solana DEX via Jupiter v6             │
